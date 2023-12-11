@@ -40,3 +40,8 @@ button {
 .save-button {
   background-color:green;
 }
+
+img{
+  max-width:250px;
+  max-height:250px;
+}

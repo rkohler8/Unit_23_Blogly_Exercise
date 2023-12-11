@@ -1,12 +1,22 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>{{user.first_name}} Details</h1>
-<ul>
+<a href="/">Go Back</a>
+<h1>{{user.full_name}}</h1>
+
+{% if user.image_url %}
+<div class="">
+  <img src="{{ user.image_url }}"
+        alt="{{ user.full_name }}"
+        class="img-fluid">
+</div>
+{% endif %}
+
+<!-- <ul>
   <li>ID: {{user.id}}</li>
   <li>First Name: {{user.first_name}}</li>
   <li>Last Name: {{user.last_name}}</li>
   <li>URL: {{user.image_url}}</li>
-</ul>
+</ul> -->
 <form>
   <button type="submit" class="edit-button" 
   formaction="/users/{{user.id}}/edit" formmethod="GET">Edit
@@ -16,8 +26,4 @@
 </button>
 </form>
 
-<a href="/">Go Back</a>
-<!-- <form action="/begin" method="POST">
-  <button>Start!</button>
-</form> -->
 {% endblock %}

@@ -44,13 +44,12 @@ def create_user():
 
     first_name = request.form["first_name"]
     last_name = request.form["last_name"]
-    image_url = request.form["image_url"]
+    image_url = request.form["image_url"] or None
     new_user = User(first_name=first_name, last_name=last_name, image_url=image_url)
     db.session.add(new_user)
     db.session.commit()
 
     return redirect("/users")
-    # return redirect(f"/{new_user.id}")
 
 @app.route('/users/<int:user_id>')
 def show_user(user_id):
